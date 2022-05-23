@@ -1,0 +1,13 @@
+import rsa
+
+public_key, private_key = rsa.newkeys(510)
+_input = input("Enter a small string to test: ")
+print("The text to be encrypted:", _input)
+print("---------------------------------")
+_input = _input.encode('utf8')
+encrypt = rsa.encrypt(_input, public_key) #encrypts data
+print("Encrypted text is:",encrypt)
+print("---------------------------------")
+decrypt = rsa.decrypt(encrypt, private_key) #decrypts data
+decrypt = decrypt.decode('utf8')
+print("Decrypted text is:",decrypt)
